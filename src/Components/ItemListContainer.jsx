@@ -1,12 +1,14 @@
+import "../styles.css"
+import ItemContainer from "./ItemContainer"
+import ItemCount from "./ItemCount"
 
 
-
-function ItemListContainer({greeting}) {
+function ItemListContainer({children}) {
 
     return (
-        <>
-            <h1>{greeting}</h1>
-        </>
+        <div className="container">
+            <ItemContainer/>
+        </div>
     )
 }
 
