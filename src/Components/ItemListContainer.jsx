@@ -1,9 +1,8 @@
 import "../styles.css"
 import ItemContainer from "./ItemContainer"
-import ItemCount from "./ItemCount"
 
 
-function ItemListContainer({children}) {
+function ItemListContainer() {
 
     return (
         <div className="container">

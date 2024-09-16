@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "../styles.css"
 
-const ItemCount = () => {
+const OnAdd = () => {
     const [count,setCount] = useState(0)
 
     return (
@@ -15,4 +15,4 @@ const ItemCount = () => {
     )
 }
 
-export default ItemCount
+export default OnAdd
