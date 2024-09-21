@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles.css"
 
 const OnAdd = () => {
@@ -18,6 +18,7 @@ const OnAdd = () => {
                 <button className='btnSumarRestar' onClick={()=>setCount(count => count+1)}> + </button>
             </div> )
     } */
+
 
     return (
         <div className='card'>

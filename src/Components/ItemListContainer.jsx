@@ -1,12 +1,12 @@
 import "../styles.css"
-import ItemContainer from "./ItemContainer"
+import ItemList from "./ItemList"
 
 
 function ItemListContainer() {
 
     return (
         <div className="container">
-            <ItemContainer/>
+            <ItemList/>
         </div>
     )
 }

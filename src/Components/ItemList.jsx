@@ -1,7 +1,7 @@
 import Item from "./Item"
 
 
-const ItemContainer = () => {
+const ItemList = () => {
     
 
     return (
@@ -11,4 +11,4 @@ const ItemContainer = () => {
     )
 }
 
-export default ItemContainer
+export default ItemList
