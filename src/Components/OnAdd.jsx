@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../styles.css"
 
-const OnAdd = () => {
+const OnAdd = ({stock}) => {
     const [count,setCount] = useState(0)
 
     const handleSubtractUnit = (contador) => {
@@ -10,8 +10,10 @@ const OnAdd = () => {
         }
     }
 
-    const handleAddUnit = () => {
+    const handleAddUnit = (contador, stock) => {
+        if(contador < stock){
             setCount(count => count+1)
+        }
     }
 
 
@@ -20,7 +22,7 @@ const OnAdd = () => {
             <div className='contador'>
                 <button className='btnSumarRestar' onClick={()=>handleSubtractUnit(count)}> - </button>
                 <h3>{count}</h3>
-                <button className='btnSumarRestar' onClick={handleAddUnit}> + </button>
+                <button className='btnSumarRestar' onClick={()=>handleAddUnit(count,stock)}> + </button>
             </div>
         </div>
     )
