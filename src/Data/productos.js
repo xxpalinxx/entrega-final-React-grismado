@@ -14,3 +14,11 @@ export let remeras = [
     {id: 13, img:"./img/13.jpg" , nombre: "graphql", precio: 25, color: "negro", stock: 4},
     {id: 14, img:"./img/14.jpg" , nombre: "wordpress", precio: 25, color: "rojo", stock: 3}
 ]
+
+const getProducts = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(remeras)
+    }, 1600)
+})
+
+export default getProducts

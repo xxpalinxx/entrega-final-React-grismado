@@ -1,28 +1,8 @@
 import { useState,useEffect } from "react"
-import { remeras } from "../Data/productos"
 import OnAdd from "./OnAdd"
 
-const Item = () => {
-    const [data,setData] = useState([])
-    const [loading,setLoading]=useState(true)
-
-    useEffect(() => {
-        const traerProductos = () => {
-            return new Promise(resolve => {
-                setTimeout(()=>{
-                    resolve(remeras)
-                },1200)
-            })
-        }
-        traerProductos().then(resultdos=>{
-            setData(resultdos)
-            setLoading(false)
-        })
-    },[])
-
-    if(loading) {
-        return <h2>Loading</h2>
-    }
+const Item = ({data}) => {
+    
 
     return (
         <>

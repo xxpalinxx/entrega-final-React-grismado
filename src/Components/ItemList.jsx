@@ -1,12 +1,12 @@
 import Item from "./Item"
 
 
-const ItemList = () => {
+const ItemList = ({data}) => {
     
 
     return (
         <>
-            <Item/>
+            <Item data={data}/>
         </>
     )
 }
