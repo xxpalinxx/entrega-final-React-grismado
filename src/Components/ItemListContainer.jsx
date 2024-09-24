@@ -1,6 +1,5 @@
 import "../styles.css"
 import ItemList from "./ItemList"
-import { remeras } from "../Data/productos"
 import getProducts from "../Data/productos"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
@@ -24,9 +23,6 @@ function ItemListContainer() {
         .catch(error => console.error(error))
     },[idCategory])
 
-    /* if(loading) {
-        return <h2>Loading</h2>
-    } */
     return (
         <div className="container">
             {loading ?

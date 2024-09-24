@@ -3,6 +3,7 @@ import OnAdd from "./OnAdd"
 
 const Item = ({data}) => {
     
+    const {id,nombre,color,precio,stock} = data
 
     return (
         <>
