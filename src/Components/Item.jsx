@@ -1,16 +1,17 @@
 import { useState,useEffect } from "react"
 import OnAdd from "./OnAdd"
+import { Link } from "react-router-dom"
 
 const Item = ({data}) => {
-    
-    const {id,nombre,color,precio,stock} = data
 
     return (
         <>
             {data.map(prod => (
                 <div className="card" key={prod.id}>
                     <h2>{prod.nombre}</h2>
-                    <img className="card-img" src={`../../public/Img/${prod.id}.jpg`} alt="Imagen Producto" />
+                    <Link to={`/item/${prod.id}`} >
+                        <img className="card-img" src={`../../public/Img/${prod.id}.jpg`} alt="Imagen Producto" />
+                    </Link>
                     <h3>Color: {prod.color}</h3>
                     <p>Precio: ${prod.precio}</p>
                     <p>Stock: {prod.stock}</p>
