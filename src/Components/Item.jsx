@@ -7,6 +7,7 @@ const Item = ({data}) => {
     return (
         <>
             {data.map(prod => (
+            <div className="container-card">
                 <div className="card" key={prod.id}>
                     <h2>{prod.nombre}</h2>
                     <Link to={`/item/${prod.id}`} >
@@ -17,6 +18,7 @@ const Item = ({data}) => {
                     <p>Stock: {prod.stock}</p>
                     <OnAdd stock={prod.stock}/>
                     <button className="btnAgregarCarrito">Agregar al Carrito</button>
+                </div>
             </div>
             ))}
         </>
