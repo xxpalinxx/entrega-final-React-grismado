@@ -8,7 +8,6 @@ function ItemListContainer() {
     const [data,setData] = useState([])
     const [loading,setLoading]=useState(true)
     const {idColor} = useParams()
-    console.log(idColor)
 
     useEffect(() => {
         getProducts

@@ -5,6 +5,7 @@ import './App.css'
 import ItemListContainer from './Components/ItemListContainer'
 import ItemDetail from './Components/DetailComponents/ItemDetail'
 import PageNotFound from './Components/PageNotFound'
+import Home from './Components/Home'
 
 function App() {
   
@@ -13,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='/' element={<ItemListContainer/>}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/productos' element={<ItemListContainer/>}/>
         <Route path='/productos/:idColor' element={<ItemListContainer/>}/>
         <Route path='/item/:id' element={<ItemDetail />} />
