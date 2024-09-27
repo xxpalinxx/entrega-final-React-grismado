@@ -7,21 +7,22 @@ import { useState, useEffect } from "react"
 function ItemListContainer() {
     const [data,setData] = useState([])
     const [loading,setLoading]=useState(true)
-    const {idCategory} = useParams()
+    const {idColor} = useParams()
+    console.log(idColor)
 
     useEffect(() => {
         getProducts
         .then((respuesta) =>{
-            if(idCategory){
-                const newProduct = respuesta.filter(producto => producto.category === idCategory)
-                setData(newProduct)
+            if(idColor){
+                const productoFiltrado = respuesta.filter(producto => producto.color === idColor)
+                setData(productoFiltrado)
             } else {
                 setData(respuesta)
             }
-            setLoading(false)
+            setLoading(false) 
         })
-        .catch(error => console.error(error))
-    },[idCategory])
+        .catch(error => {console.error(error)})
+    },[idColor])
 
     return (
         <div className="container">
