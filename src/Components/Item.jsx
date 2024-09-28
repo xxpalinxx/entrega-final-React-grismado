@@ -7,8 +7,8 @@ const Item = ({data}) => {
     return (
         <>
             {data.map(prod => (
-            <div className="container-card">
-                <div className="card" key={prod.id}>
+            <div className="container-card" key={prod.id}>
+                <div className="card" >
                     <h2>{prod.nombre}</h2>
                     <Link to={`/item/${prod.id}`} >
                         <img className="card-img" src={`../../public/Img/${prod.id}.jpg`} alt="Imagen Producto" />
