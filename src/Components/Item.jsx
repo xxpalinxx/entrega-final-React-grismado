@@ -1,9 +1,10 @@
-import { useState,useEffect } from "react"
+import { useContext } from "react"
+import CartContext from "../Context/CartContext"
 import OnAdd from "./OnAdd"
 import { Link } from "react-router-dom"
 
 const Item = ({data}) => {
-
+    const {addToCart} = useContext(CartContext)
     return (
         <>
             {data.map(prod => (
@@ -17,7 +18,7 @@ const Item = ({data}) => {
                     <p>Precio: ${prod.precio}</p>
                     <p>Stock: {prod.stock}</p>
                     <OnAdd stock={prod.stock}/>
-                    <button className="btnAgregarCarrito">Agregar al Carrito</button>
+                    <button className="btnAgregarCarrito" onClick={()=>addToCart(prod)}>Agregar al Carrito</button>
                 </div>
             </div>
             ))}

@@ -20,9 +20,9 @@ const OnAdd = ({stock}) => {
     return (
         <div className='card'>
             <div className='contador'>
-                <button className='btnSumarRestar' onClick={()=>handleSubtractUnit(count)}> - </button>
+                <button className='btn btn-dark' onClick={()=>handleSubtractUnit(count)}> - </button>
                 <h3>{count}</h3>
-                <button className='btnSumarRestar' onClick={()=>handleAddUnit(count,stock)}> + </button>
+                <button className='btn btn-dark' onClick={()=>handleAddUnit(count,stock)}> + </button>
             </div>
         </div>
     )
