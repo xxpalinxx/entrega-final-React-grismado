@@ -1,17 +1,16 @@
-import { useContext } from 'react'
-import CartContext from '../Context/CartContext'
+import { useContext, useMemo } from "react"
+import CartContext from "../Context/CartContext"
 
 import React from 'react'
 import imgCarrito from '../../public/carrito.png'
 
 function CartWidget() {
-    const {carrito,addToCart,removeFromCart} = useContext(CartContext)
-
-
+    const {carrito} = useContext(CartContext)
+    const itemTotal = useMemo(() => carrito.reduce((total, item) => total + item.cantidad, 0),[carrito])
     return (
         <>
             <img src={imgCarrito} alt="carrito"/>
-            <span>5</span>
+            <span>{itemTotal}</span>
         </>
     )
 }

@@ -33,6 +33,7 @@ nav img {
 }
 
 nav span {
+  color: black;
   position: absolute;
   font-size: 1.6rem;
   top: 5.8rem;
