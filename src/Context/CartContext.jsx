@@ -5,17 +5,19 @@ const CartContext = createContext([])
 export const CartProvider = ({children}) => {
     const [carrito, setCarrito] = useState([])
 
-    function addToCart (item) {
+    function addToCart (item , cantidadSeleccionada=0) {
         const itemExist = carrito.findIndex((prod) => prod.id === item.id)
         if(itemExist >=0) { //Significa que el item ya existe
             const updatedCart = [...carrito]
-            updatedCart[itemExist].cantidad++
+            if(cantidadSeleccionada <= 1) {
+                updatedCart[itemExist].cantidad++
+            } else {
+                updatedCart[itemExist].cantidad = updatedCart[itemExist].cantidad + cantidadSeleccionada
+            }
             setCarrito(updatedCart)
-            console.log('Agregado...', item.id)
         } else {
-            item.cantidad = 1
+            item.cantidad = cantidadSeleccionada
             setCarrito([...carrito, item])
-            console.log('Agregado...', item.id)
         }
     }
 

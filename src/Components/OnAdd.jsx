@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "../styles.css"
 
-const OnAdd = ({stock}) => {
-    const [count,setCount] = useState(0)
+const OnAdd = ({prod, addToCart}) => {
+    const [count,setCount] = useState(1)
 
     const handleSubtractUnit = (contador) => {
-        if (contador > 0) {
+        if (contador > 1) {
             setCount(count => count-1)
         }
     }
@@ -19,11 +19,18 @@ const OnAdd = ({stock}) => {
 
     return (
         <div className='card'>
-            <div className='contador'>
-                <button className='btn btn-dark' onClick={()=>handleSubtractUnit(count)}> - </button>
-                <h3>{count}</h3>
-                <button className='btn btn-dark' onClick={()=>handleAddUnit(count,stock)}> + </button>
-            </div>
+            {prod.stock === 0 ? (
+                <h3>No Stock</h3>
+            ):(
+            <>
+                <div className='contador'>
+                    <button className='btn btn-dark' onClick={()=>handleSubtractUnit(count)}> - </button>
+                    <h3>{count}</h3>
+                    <button className='btn btn-dark' onClick={()=>handleAddUnit(count,prod.stock)}> + </button>
+                </div>
+                <button className="btnAgregarCarrito" onClick={()=>addToCart(prod, count)}>Agregar al Carrito</button>
+            </>
+            )}
         </div>
     )
 }

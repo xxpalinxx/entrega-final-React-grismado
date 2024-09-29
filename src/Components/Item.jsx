@@ -17,9 +17,9 @@ const Item = ({data}) => {
                     <h3>Color: {prod.color}</h3>
                     <p>Precio: ${prod.precio}</p>
                     <p>Stock: {prod.stock}</p>
-                    <OnAdd stock={prod.stock}/>
-                    <button className="btnAgregarCarrito" onClick={()=>addToCart(prod)}>Agregar al Carrito</button>
-                </div>
+                    <OnAdd prod={prod} addToCart={addToCart}/>
+{/*                     <button className="btnAgregarCarrito" onClick={()=>addToCart(prod)}>Agregar al Carrito</button>
+ */}                </div>
             </div>
             ))}
         </>
