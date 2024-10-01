@@ -1,11 +1,22 @@
 import { useContext, useMemo } from "react"
 import CartContext from "../../Context/CartContext"
+import Item from "../Item"
 import "./CartDetail.css"
 
 const CartDetail = () => {
     const {carrito, removeFromCart} = useContext(CartContext)
     const isEmpty = useMemo( () => carrito.length === 0, [carrito])
     const cartTotal = useMemo(() => carrito.reduce((total, item) => total + item.cantidad * item.precio, 0),[carrito])
+
+    const handleStock = (prod) => {
+        prod.stock += prod.cantidad
+        setCount(prod.stock)
+    }
+
+    const handleClickRemove = (prod) => {
+        /* handleStock(prod) */
+        removeFromCart(prod.id)
+    }
 
     return (
         <div className="contenedor-carrito">

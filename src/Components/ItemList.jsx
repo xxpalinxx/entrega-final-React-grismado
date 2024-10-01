@@ -3,14 +3,19 @@ import PageNotFound from "./PageNotFound"
 
 
 const ItemList = ({data}) => {
-    
+
     if (data.length === 0) {
         return <PageNotFound/>
     } 
 
     return (
         <>
-                <Item data={data}/>
+            {data.map(prod => 
+                <Item 
+                    prod={prod} 
+                    key={prod.id}
+                />
+            )}
         </>
     )
 }

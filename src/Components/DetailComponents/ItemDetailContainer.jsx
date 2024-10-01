@@ -27,9 +27,9 @@ const ItemDetailContainer = ({producto}) => {
                             ducimus veniam veritatis nihil.
                         </p>
                     </li>
-                    <li>
+                    {/* <li>
                         <OnAdd stock={producto.stock}/>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>
