@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
-import { useContext } from 'react'
-import CartContext from '../Context/CartContext'
 import "../styles.css"
 
-const OnAdd = ({prod, addToCart, handleStock, count, setCount}) => {
-    const {carrito} = useContext(CartContext)
+const OnAdd = ({prod, addToCart, count, setCount}) => {
 
-    const handleSubtractUnit = (contador) => {
+    const handleDecreaseUnit = (contador) => {
         if (contador > 1) {
             setCount(count => count-1)
         }
     }
 
-    const handleAddUnit = (contador, stock) => {
+    const handleIncreaseUnit = (contador, stock) => {
         if(contador < stock){
             setCount(count => count+1)
         }
@@ -20,7 +17,6 @@ const OnAdd = ({prod, addToCart, handleStock, count, setCount}) => {
 
     const handleClickAdd = () => {
         addToCart(prod, count)
-        /* handleStock(count) */
     }
 
     return (
@@ -30,9 +26,9 @@ const OnAdd = ({prod, addToCart, handleStock, count, setCount}) => {
             ):(
             <>
                 <div className='contador'>
-                    <button className='btn btn-dark' onClick={()=>handleSubtractUnit(count)}> - </button>
+                    <button className='btn btn-dark' onClick={()=>handleDecreaseUnit(count)}> - </button>
                     <h3>{count}</h3>
-                    <button className='btn btn-dark' onClick={()=>handleAddUnit(count,prod.stock)}> + </button>
+                    <button className='btn btn-dark' onClick={()=>handleIncreaseUnit(count,prod.stock)}> + </button>
                 </div>
                 <button className="btnAgregarCarrito" 
                         onClick={handleClickAdd}

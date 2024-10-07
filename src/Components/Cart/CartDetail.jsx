@@ -32,6 +32,7 @@ const CartDetail = () => {
                                 <th>Nombre</th>
                                 <th>Precio</th>
                                 <th>Cantidad</th>
+                                <th>Subtotal</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -62,6 +63,9 @@ const CartDetail = () => {
                                         >
                                             +
                                         </button>
+                                    </td>
+                                    <td>
+                                        ${prod.cantidad*prod.precio}
                                     </td>
                                     <td>
                                         <button
