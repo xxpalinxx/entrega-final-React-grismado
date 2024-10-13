@@ -1,16 +1,15 @@
 import { useContext} from "react"
-import CartContext from "../Context/CartContext"
+import GlobalContext from "../Context/GlobalContext"
 
 import React from 'react'
 import imgCarrito from '../../public/carrito.png'
 
 function CartWidget() {
-    const {carrito} = useContext(CartContext)
-    const itemTotal = carrito.reduce((total, item) => total + item.cantidad, 0)
+    const {totalItemsInCart} = useContext(GlobalContext)
     return (
         <>
             <img src={imgCarrito} alt="carrito"/>
-            <span>{itemTotal}</span>
+            <span>{totalItemsInCart}</span>
         </>
     )
 }

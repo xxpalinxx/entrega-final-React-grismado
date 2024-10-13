@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import "../styles.css"
+import GlobalContext from '../Context/GlobalContext'
 
-const OnAdd = ({prod, addToCart, count, setCount}) => {
+const OnAdd = ({ prod, count, setCount }) => {
 
+    const { addToCart} = useContext(GlobalContext)
+    
     const handleDecreaseUnit = (contador) => {
         if (contador > 1) {
             setCount(count => count-1)

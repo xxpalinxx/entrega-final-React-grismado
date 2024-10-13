@@ -2,32 +2,38 @@ import "../styles.css"
 import ItemList from "./ItemList"
 import getProducts from "../Data/productos"
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+
+import GlobalContext from '../Context/GlobalContext'
 
 function ItemListContainer() {
-    const [data,setData] = useState([])
+    const [filtereData,setFilteredData] = useState([])
     const [loading,setLoading]=useState(true)
     const {idColor} = useParams()
 
+    const { data } = useContext(GlobalContext)
+
     useEffect(() => {
-        getProducts
-        .then((respuesta) =>{
-            if(idColor){
-                const productoFiltrado = respuesta.filter(producto => producto.color === idColor)
-                setData(productoFiltrado)
+        if (data.length > 0) {
+            if (idColor) {
+                // Si hay idColor, filtrar por color
+                const productoFiltrado = data.filter(producto => producto.color === idColor);
+                setFilteredData(productoFiltrado);
             } else {
-                setData(respuesta)
+                // Si no hay idColor, mostrar todos los productos
+                setFilteredData(data);
             }
-            setLoading(false) 
-        })
-        .catch(error => {console.error(error)})
-    },[idColor])
+            setLoading(false); // Cambia el estado de carga después de actualizar los datos filtrados
+        }
+    },[idColor, data])
+
+    console.log(data)
 
     return (
         <div className="container">
             {loading ?
                 <h2>Loading</h2> :
-                <ItemList data={data}/>
+                <ItemList data={filtereData}/>
             }
         </div>
     )

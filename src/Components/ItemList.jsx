@@ -7,7 +7,8 @@ const ItemList = ({data}) => {
     if (data.length === 0) {
         return <PageNotFound/>
     } 
-
+    
+    console.log(data)
     return (
         <>
             {data.map(prod => 
