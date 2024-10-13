@@ -24,8 +24,6 @@ function ItemListContainer() {
         }
     },[idColor, data])
 
-    console.log(data)
-
     return (
         <div className="container">
             {loading ?

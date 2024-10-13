@@ -8,7 +8,6 @@ const ItemList = ({data}) => {
         return <PageNotFound/>
     } 
     
-    console.log(data)
     return (
         <>
             {data.map(prod => 
