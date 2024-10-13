@@ -1,35 +1,35 @@
-import { useContext, useState, useEffect } from "react";
-import GlobalContext from "../../Context/GlobalContext";
+import { useContext, useState, useEffect } from "react"
+import GlobalContext from "../../Context/GlobalContext"
 
 export default function CartItemDetail({ prod }) {
-    const { removeFromCart, setCarrito } = useContext(GlobalContext);
+    const { removeFromCart, setCarrito } = useContext(GlobalContext)
     
-    const [count, setCount] = useState(prod.cantidad);
+    const [count, setCount] = useState(prod.cantidad)
 
     useEffect(() => {
         // Actualizar el carrito cuando la cantidad cambie
         const updatedCarrito = (prevCarrito) => 
             prevCarrito.map((item) => 
                 item.id === prod.id ? { ...item, cantidad: count } : item
-            );
+            )
 
-        setCarrito(updatedCarrito);
-    }, [count, prod.id, setCarrito]);
+        setCarrito(updatedCarrito)
+    }, [count, prod.id, setCarrito])
 
     const handleDecreaseUnit = () => {
         if (count > 1) {
-            setCount(count => count - 1);
+            setCount(count => count - 1)
         }
     };
 
     const handleIncreaseUnit = () => {
         const stock = prod.stock;
         if (count < stock) {
-            setCount(count => count + 1);
+            setCount(count => count + 1)
         }
     };
 
-    const subtotal = count * prod.precio;
+    const subtotal = count * prod.precio
 
     return (
         <tr>

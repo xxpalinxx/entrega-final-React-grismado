@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect } from "react";
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { createContext, useState, useEffect } from "react"
+import { initializeApp } from "firebase/app"
+import { getFirestore, collection, getDocs } from "firebase/firestore"
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -13,74 +13,74 @@ const firebaseConfig = {
 };
 
 // Inicializa Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig)
 
 // Crea el contexto global
-const GlobalContext = createContext([]);
+const GlobalContext = createContext([])
 
 // Proveedor del contexto
 export const GlobalProvider = ({ children }) => {
   // Estado de productos desde Firebase
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
 
     // Estado del carrito
-    const [carrito, setCarrito] = useState([]);
+    const [carrito, setCarrito] = useState([])
 
     // Función para obtener productos desde Firebase
     useEffect(() => {
-        const db = getFirestore(app);
+        const db = getFirestore(app)
         const fetchData = async () => {
-        try {
-            const itemCollection = collection(db, 'items');
-            const snapshot = await getDocs(itemCollection);
-            const itemDB = snapshot.docs.map(doc => ({
-            id: doc.id, 
-            ...doc.data()
-            }));
-            setData(itemDB);
-            setLoading(false);
-        } catch (error) {
-            console.error("Error fetching data: ", error);
+            try {
+                const itemCollection = collection(db, 'items')
+                const snapshot = await getDocs(itemCollection)
+                const itemDB = snapshot.docs.map(doc => ({
+                    id: doc.id, 
+                    ...doc.data()
+                }))
+                setData(itemDB)
+                setLoading(false)
+            } catch (error) {
+                console.error("Error fetching data: ", error)
+            }
         }
-        };
 
-        fetchData();
-    }, []);
+        fetchData()
+    }, [])
 
     // Funciones para manejar el carrito
     const addToCart = (item, cantidadSeleccionada = 0) => {
-        const itemExist = carrito.findIndex((prod) => prod.id === item.id);
+        const itemExist = carrito.findIndex((prod) => prod.id === item.id)
         if (itemExist >= 0) { // El item ya existe en el carrito
-        const updatedCart = [...carrito];
+            const updatedCart = [...carrito]
         if (cantidadSeleccionada <= 1) {
-            updatedCart[itemExist].cantidad++;
+            updatedCart[itemExist].cantidad++
         } else {
-            updatedCart[itemExist].cantidad += cantidadSeleccionada;
+            updatedCart[itemExist].cantidad += cantidadSeleccionada
         }
-        setCarrito(updatedCart);
+        setCarrito(updatedCart)
         } else {
-        item.cantidad = cantidadSeleccionada;
-        setCarrito([...carrito, item]);
+            item.cantidad = cantidadSeleccionada
+            setCarrito([...carrito, item])
         }
-    };
+    }
 
     const removeFromCart = (id) => {
-        setCarrito(prevCart => prevCart.filter(prod => prod.id !== id));
-    };
+        setCarrito(prevCart => prevCart.filter(prod => prod.id !== id))
+    }
 
     const clearCart = () => {
-        setCarrito([]);
-    };
+        setCarrito([])
+    }
 
     // Función para calcular el total de productos en el carrito
-    const totalItemsInCart = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    const totalItemsInCart = carrito.reduce((acc, item) => acc + item.cantidad, 0)
     
 
     // Función para calcular el precio total del carrito
     const totalPrice = () => {
-        return carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-    };
+        return carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0)
+    }
 
     return (
         <GlobalContext.Provider

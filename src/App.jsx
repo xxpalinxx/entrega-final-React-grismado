@@ -1,8 +1,6 @@
 import GlobalContext from './Context/GlobalContext'
 import { GlobalProvider } from './Context/GlobalContext'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import { getDocs, collection, getFirestore } from 'firebase/firestore'
 
 import Navbar from './Components/Navbar'
 import ItemListContainer from './Components/ItemListContainer'
@@ -14,20 +12,6 @@ import Home from './Components/Home'
 import './App.css'
 
 function App() {
-  /* const [data, setData] = useState([])
-  
-  const db = getFirestore()
-
-  useEffect(() => {
-    const itemCollection = collection(db, 'items')
-    const itemDB = []
-    getDocs(itemCollection).then(snapshot => snapshot.docs.map(item => {
-      itemDB.push(item.data())
-    }))
-    setData(itemDB)
-  },[])
-
-  console.log(data) */
 
   return (
     <BrowserRouter>

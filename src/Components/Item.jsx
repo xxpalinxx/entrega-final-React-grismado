@@ -21,12 +21,10 @@ const Item = ({prod}) => {
                     <p>Stock: {prod.stock}</p>
                     <OnAdd prod={prod} 
                         addToCart={addToCart} 
-                        /* handleStock={handleStock}  */
                         count={count} 
                         setCount={setCount} 
                     />
-{/*                     <button className="btnAgregarCarrito" onClick={()=>addToCart(prod)}>Agregar al Carrito</button>
- */}                </div>
+                </div>
             </div>
         </>
     )

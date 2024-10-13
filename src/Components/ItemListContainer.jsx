@@ -1,6 +1,5 @@
 import "../styles.css"
 import ItemList from "./ItemList"
-import getProducts from "../Data/productos"
 import { useParams } from "react-router-dom"
 import { useState, useEffect, useContext } from "react"
 
@@ -16,14 +15,12 @@ function ItemListContainer() {
     useEffect(() => {
         if (data.length > 0) {
             if (idColor) {
-                // Si hay idColor, filtrar por color
-                const productoFiltrado = data.filter(producto => producto.color === idColor);
-                setFilteredData(productoFiltrado);
+                const productoFiltrado = data.filter(producto => producto.color === idColor)
+                setFilteredData(productoFiltrado)
             } else {
-                // Si no hay idColor, mostrar todos los productos
-                setFilteredData(data);
+                setFilteredData(data)
             }
-            setLoading(false); // Cambia el estado de carga después de actualizar los datos filtrados
+            setLoading(false)
         }
     },[idColor, data])
 

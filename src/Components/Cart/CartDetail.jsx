@@ -1,19 +1,18 @@
-import { useContext, useMemo, useState, useEffect } from "react";
-import GlobalContext from "../../Context/GlobalContext";
-import CartItemDetail from "./CartItemDetail";
-import "./CartDetail.css";
+import { useContext, useMemo, useState, useEffect } from "react"
+import GlobalContext from "../../Context/GlobalContext"
+import CartItemDetail from "./CartItemDetail"
+import "./CartDetail.css"
 
 const CartDetail = () => {
-    const { carrito } = useContext(GlobalContext);
-    const [cartTotal, setCartTotal] = useState(0);
+    const { carrito } = useContext(GlobalContext)
+    const [cartTotal, setCartTotal] = useState(0)
 
-    // Recalcular el total cuando el carrito cambia
     useEffect(() => {
-        const total = carrito.reduce((acc, item) => acc + item.cantidad * item.precio, 0);
-        setCartTotal(total);
-    }, [carrito]);
+        const total = carrito.reduce((acc, item) => acc + item.cantidad * item.precio, 0)
+        setCartTotal(total)
+    }, [carrito])
 
-    const isEmpty = useMemo(() => carrito.length === 0, [carrito]);
+    const isEmpty = useMemo(() => carrito.length === 0, [carrito])
 
     return (
         <div className="contenedor-carrito">
@@ -49,7 +48,7 @@ const CartDetail = () => {
                 )}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default CartDetail;
+export default CartDetail
