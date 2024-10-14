@@ -2,6 +2,7 @@ import { useContext, useMemo, useState, useEffect } from "react"
 import GlobalContext from "../../Context/GlobalContext"
 import CartItemDetail from "./CartItemDetail"
 import "./CartDetail.css"
+import CheckOut from "../CheckOut/CheckOut"
 
 const CartDetail = () => {
     const { carrito } = useContext(GlobalContext)
@@ -47,6 +48,7 @@ const CartDetail = () => {
                     </>
                 )}
             </div>
+            <CheckOut />
         </div>
     )
 }

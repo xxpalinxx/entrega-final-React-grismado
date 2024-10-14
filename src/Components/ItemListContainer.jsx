@@ -4,11 +4,14 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect, useContext } from "react"
 
 import GlobalContext from '../Context/GlobalContext'
+import ColorFilter from "./ColorFilter"
 
 function ItemListContainer() {
-    const [filtereData,setFilteredData] = useState([])
+    const [filteredData,setFilteredData] = useState([])
     const [loading,setLoading]=useState(true)
     const {idColor} = useParams()
+
+    const coloresDisponibles = ["gris", "negro", "amarillo", "blanco", "rojo", "violeta", "azul"]
 
     const { data } = useContext(GlobalContext)
 
@@ -26,10 +29,13 @@ function ItemListContainer() {
 
     return (
         <div className="container">
-            {loading ?
-                <h2>Loading</h2> :
-                <ItemList data={filtereData}/>
-            }
+                <ColorFilter coloresDisponibles={coloresDisponibles} />
+            <div className="grid-item-container">
+                {loading ?
+                    <h2>Loading</h2> :
+                    <ItemList data={filteredData}/>
+                }
+            </div>
         </div>
     )
 }

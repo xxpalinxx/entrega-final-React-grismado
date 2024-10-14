@@ -5,7 +5,6 @@ import CartWidget from "./CartWidget"
 import imgLogo from '../../public/logo.png'
 
 function Navbar() {
-    
 
     return (
         <nav>
