@@ -3,7 +3,6 @@ import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore"
 import Swal from "sweetalert2"
 
-// Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyB_iPucQqj_y7hs4nuF4XjTOMzO73WG0yo",
     authDomain: "ecommerce-codergrismado.firebaseapp.com",
@@ -13,14 +12,11 @@ const firebaseConfig = {
     appId: "1:779174060517:web:407fd8620fb771f028cf0c"
 };
 
-// Inicializa Firebase
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
-// Crea el contexto global
 const GlobalContext = createContext([])
 
-// Proveedor del contexto
 export const GlobalProvider = ({ children }) => {
   // Estado de productos desde Firebase
     const [data, setData] = useState([])

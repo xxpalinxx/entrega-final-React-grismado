@@ -7,7 +7,6 @@ export default function CartItemDetail({ prod }) {
     const [count, setCount] = useState(prod.cantidad)
 
     useEffect(() => {
-        // Actualizar el carrito cuando la cantidad cambie
         const updatedCarrito = (prevCarrito) => 
             prevCarrito.map((item) => 
                 item.id === prod.id ? { ...item, cantidad: count } : item

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import "../styles.css"
 import GlobalContext from '../Context/GlobalContext'
 import Swal from 'sweetalert2'

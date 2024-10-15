@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react"
 import GlobalContext from "../../Context/GlobalContext"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore"
 import Swal from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
 
 const CheckOut = () => {
     const { carrito, totalPrice, clearCart } = useContext(GlobalContext)
@@ -17,8 +16,7 @@ const CheckOut = () => {
 
     const db = getFirestore()
 
-    const MySwal = withReactContent(Swal)
-    // Función para manejar cambios en los campos del formulario
+
     const handleChange = (e) => {
         const { name, value } = e.target
         setBuyer((prevBuyer) => ({
