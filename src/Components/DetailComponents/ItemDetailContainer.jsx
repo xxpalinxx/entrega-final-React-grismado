@@ -1,6 +1,5 @@
 import React from 'react'
 import "./ItemDetailContainer.css"
-import OnAdd from '../OnAdd'
 
 const ItemDetailContainer = ({producto}) => {
     return (
@@ -27,9 +26,6 @@ const ItemDetailContainer = ({producto}) => {
                             ducimus veniam veritatis nihil.
                         </p>
                     </li>
-                    {/* <li>
-                        <OnAdd stock={producto.stock}/>
-                    </li> */}
                 </ul>
             </div>
         </div>

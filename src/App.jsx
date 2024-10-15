@@ -1,4 +1,3 @@
-import GlobalContext from './Context/GlobalContext'
 import { GlobalProvider } from './Context/GlobalContext'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -10,7 +9,6 @@ import PageNotFound from './Components/PageNotFound'
 import Home from './Components/Home'
 
 import './App.css'
-import CheckOut from './Components/CheckOut/CheckOut'
 
 function App() {
 
