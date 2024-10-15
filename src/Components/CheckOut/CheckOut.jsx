@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react"
 import GlobalContext from "../../Context/GlobalContext"
 import { Navigate, useNavigate } from "react-router-dom"
 import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore"
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
 
 const CheckOut = () => {
     const { carrito, totalPrice, clearCart } = useContext(GlobalContext)
@@ -15,6 +17,7 @@ const CheckOut = () => {
 
     const db = getFirestore()
 
+    const MySwal = withReactContent(Swal)
     // Función para manejar cambios en los campos del formulario
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -56,10 +59,18 @@ const CheckOut = () => {
             // Limpia el carrito y navega a la página de agradecimiento
             clearCart()
             navigate("/productos")
-            //sweet alert o tostify
+            compraExitosa()
         } catch (error) {
             console.error("Error al realizar la compra: ", error)
         }
+    }
+
+    const compraExitosa = () => {
+        Swal.fire(
+            'Gracias por su Compra',
+            'Compra realizada con exito',
+            'success'
+        )
     }
 
     return (

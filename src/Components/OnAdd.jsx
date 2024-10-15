@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import "../styles.css"
 import GlobalContext from '../Context/GlobalContext'
+import Swal from 'sweetalert2'
 
 const OnAdd = ({ prod, count, setCount }) => {
 
@@ -20,6 +21,19 @@ const OnAdd = ({ prod, count, setCount }) => {
 
     const handleClickAdd = () => {
         addToCart(prod, count)
+        Swal.fire({
+            icon: "success",
+            title: "Item agregado al carrito",
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        })
     }
 
     return (

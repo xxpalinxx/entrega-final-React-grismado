@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import Swal from "sweetalert2"
 
 function ColorFilter({ coloresDisponibles }) {
     const navigate = useNavigate()
@@ -9,6 +10,19 @@ function ColorFilter({ coloresDisponibles }) {
             navigate(`/productos`)
         } else {
             navigate(`/productos/${selectedColor}`)
+            Swal.fire({
+                icon: "success",
+                title: `Filtro por color seleccionado: ${selectedColor}`,
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            })
         }
     }
 
