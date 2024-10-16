@@ -7,14 +7,11 @@ const ItemDetail = () => {
     const {id } = useParams()
     const { data, loading } = useContext(GlobalContext)
 
-    console.log(id)
-    console.log(data)
     if (loading) {
         return <h2>Cargando producto...</h2>
     }
 
     const producto = data.find(item => item.id === parseInt(id))
-    console.log(producto)
 
     if (!producto) {
         return <h2>El Producto no existe</h2>

@@ -106,7 +106,7 @@ export const GlobalProvider = ({ children }) => {
             const docRef = await addDoc(collection(db, 'ordenes'), order)
             setOrderId(docRef.id)
             clearCart()
-            console.log("Orden creada con ID: ", docRef.id)
+            ("Orden creada con ID: ", docRef.id)
         } catch (error) {
             console.error("Error al crear la orden: ", error)
         }
