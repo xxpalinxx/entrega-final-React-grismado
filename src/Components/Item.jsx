@@ -19,11 +19,13 @@ const Item = ({prod}) => {
                     <h3>Color: {prod.color}</h3>
                     <p>Precio: ${prod.precio}</p>
                     <p>Stock: {prod.stock}</p>
-                    <OnAdd prod={prod} 
-                        addToCart={addToCart} 
-                        count={count} 
-                        setCount={setCount} 
-                    />
+                    <div className='card'>
+                        <OnAdd prod={prod} 
+                            addToCart={addToCart} 
+                            count={count} 
+                            setCount={setCount} 
+                        />
+                    </div>
                 </div>
             </div>
         </>

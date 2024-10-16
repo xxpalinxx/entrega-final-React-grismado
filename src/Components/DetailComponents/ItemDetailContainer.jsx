@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import GlobalContext from '../../Context/GlobalContext'
 import "./ItemDetailContainer.css"
+import OnAdd from '../OnAdd'
 
 const ItemDetailContainer = ({producto}) => {
+    const [count,setCount] = useState(1)
+
+    const {addToCart} = useContext(GlobalContext)
+
     return (
         <div className='item-detail-container'>
             <div className='grid-container'>
@@ -27,6 +33,15 @@ const ItemDetailContainer = ({producto}) => {
                         </p>
                     </li>
                 </ul>
+                <div className='card-idc'>
+                    <OnAdd 
+                        className="on-add-idc"
+                        prod={producto} 
+                        addToCart={addToCart} 
+                        count={count} 
+                        setCount={setCount} 
+                    />
+                </div>
             </div>
         </div>
     )

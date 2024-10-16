@@ -37,7 +37,7 @@ const OnAdd = ({ prod, count, setCount }) => {
     }
 
     return (
-        <div className='card'>
+        <>
             {prod.stock === 0 ? (
                 <h3>No Stock</h3>
             ):(
@@ -54,7 +54,7 @@ const OnAdd = ({ prod, count, setCount }) => {
                 </button>
             </>
             )}
-        </div>
+        </>
     )
 }
 
