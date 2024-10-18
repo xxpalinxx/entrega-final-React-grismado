@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react"
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore"
+import { getFirestore, collection, doc, getDoc , getDocs, addDoc, serverTimestamp } from "firebase/firestore"
 import Swal from "sweetalert2"
 
 const firebaseConfig = {
@@ -10,7 +10,7 @@ const firebaseConfig = {
     storageBucket: "ecommerce-codergrismado.appspot.com",
     messagingSenderId: "779174060517",
     appId: "1:779174060517:web:407fd8620fb771f028cf0c"
-};
+}
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
@@ -35,25 +35,40 @@ export const GlobalProvider = ({ children }) => {
                 const itemDB = snapshot.docs.map(doc => ({
                     id: doc.id, 
                     ...doc.data()
-                }));
+                }))
                 setData(itemDB)
                 setLoading(false)
             } catch (error) {
                 console.error("Error fetching data: ", error)
             }
-        };
+        }
 
-        fetchData();
+        fetchData()
     }, [])
 
+    const fetchOrderById = async (orderId) => {
+        try {
+            const orderRef = doc(db, "ordenes", orderId)
+            const orderSnap = await getDoc(orderRef)
+            if (orderSnap.exists()) {
+                return orderSnap.data()
+            } else {
+                throw new Error("No se encontró la orden")
+            }
+        } catch (error) {
+            console.error("Error fetching order: ", error)
+            throw error
+        }
+    }
+
     const addToCart = (item, cantidadSeleccionada = 0) => {
-        const itemExist = carrito.findIndex((prod) => prod.id === item.id);
+        const itemExist = carrito.findIndex((prod) => prod.id === item.id)
         if (itemExist >= 0) {
             const updatedCart = [...carrito]
             if (cantidadSeleccionada <= 1) {
                 updatedCart[itemExist].cantidad++
             } else {
-                updatedCart[itemExist].cantidad += cantidadSeleccionada;
+                updatedCart[itemExist].cantidad += cantidadSeleccionada
             }
             setCarrito(updatedCart)
         } else {
@@ -124,7 +139,8 @@ export const GlobalProvider = ({ children }) => {
                 clearCart,
                 totalItemsInCart,
                 totalPrice,
-                createOrder, // Exportamos la función para crear la orden
+                createOrder,
+                fetchOrderById, // Exportamos la función para crear la orden
                 orderId, // ID de la última orden creada
             }}
         >

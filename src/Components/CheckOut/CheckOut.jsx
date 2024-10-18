@@ -56,7 +56,7 @@ const CheckOut = () => {
 
             // Limpia el carrito y navega a la página de agradecimiento
             clearCart()
-            navigate("/productos")
+            navigate(`/gracias/${docRef.id}`)
             compraExitosa()
         } catch (error) {
             console.error("Error al realizar la compra: ", error)

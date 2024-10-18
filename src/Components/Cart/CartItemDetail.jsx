@@ -19,14 +19,14 @@ export default function CartItemDetail({ prod }) {
         if (count > 1) {
             setCount(count => count - 1)
         }
-    };
+    }
 
     const handleIncreaseUnit = () => {
-        const stock = prod.stock;
+        const stock = prod.stock
         if (count < stock) {
             setCount(count => count + 1)
         }
-    };
+    }
 
     const subtotal = count * prod.precio
 
@@ -69,5 +69,5 @@ export default function CartItemDetail({ prod }) {
                 </button>
             </td>
         </tr>
-    );
+    )
 }
