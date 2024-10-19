@@ -67,7 +67,8 @@ button:active {
 
 .btnAgregarCarrito {
     width: 80%;
-    margin-bottom: 2rem;
+    margin-top: 0.3rem;
+    border-radius: 0.5rem;
 }
 
 .order-container {

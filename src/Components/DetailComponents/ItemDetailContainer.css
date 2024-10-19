@@ -17,6 +17,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     margin: 2rem;
+    font-size: 1.3rem;
 }
 
 .grid-container img {
