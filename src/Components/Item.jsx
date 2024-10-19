@@ -20,7 +20,8 @@ const Item = ({prod}) => {
                     <p>Precio: ${prod.precio}</p>
                     <p>Stock: {prod.stock}</p>
                     <div className='card'>
-                        <OnAdd prod={prod} 
+                        <OnAdd 
+                            prod={prod} 
                             addToCart={addToCart} 
                             count={count} 
                             setCount={setCount} 
