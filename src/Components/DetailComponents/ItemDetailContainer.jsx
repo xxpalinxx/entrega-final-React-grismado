@@ -11,7 +11,7 @@ const ItemDetailContainer = ({producto}) => {
     return (
         <div className='item-detail-container'>
             <div className='grid-container'>
-                <img src={`../../public/Img/${producto.id}.jpg`} alt={producto.nombre} />
+                <img src={`/Img/${producto.id}.jpg`} alt={producto.nombre} />
                 <ul>
                     <li>
                         <h1>{producto.nombre}</h1>

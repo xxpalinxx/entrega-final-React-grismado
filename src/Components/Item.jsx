@@ -14,7 +14,7 @@ const Item = ({prod}) => {
                 <div className="card" >
                     <h2>{prod.nombre}</h2>
                     <Link to={`/item/${prod.id}`}>
-                        <img className="card-img" src={`../../public/Img/${prod.id}.jpg`} alt="Imagen Producto" />
+                        <img className="card-img" src={`/Img/${prod.id}.jpg`} alt="Imagen Producto" />
                     </Link>
                     <h3>Color: {prod.color}</h3>
                     <p>Precio: ${prod.precio}</p>

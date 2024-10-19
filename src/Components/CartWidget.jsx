@@ -2,7 +2,7 @@ import { useContext} from "react"
 import GlobalContext from "../Context/GlobalContext"
 
 import React from 'react'
-import imgCarrito from '../../public/carrito.png'
+import imgCarrito from '/carrito.png'
 
 function CartWidget() {
     const {totalItemsInCart} = useContext(GlobalContext)

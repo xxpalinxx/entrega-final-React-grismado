@@ -35,7 +35,7 @@ export default function CartItemDetail({ prod }) {
             <td>
                 <img 
                     className="img-fluid" 
-                    src={`../../public/Img/${prod.id}.jpg`}  
+                    src={`/Img/${prod.id}.jpg`}  
                     alt={prod.nombre} 
                 />
             </td>
