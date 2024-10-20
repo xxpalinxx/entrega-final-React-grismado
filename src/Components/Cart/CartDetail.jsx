@@ -5,7 +5,7 @@ import "./CartDetail.css"
 import CheckOut from "../CheckOut/CheckOut"
 
 const CartDetail = () => {
-    const { carrito } = useContext(GlobalContext)
+    const { carrito, clearCart } = useContext(GlobalContext)
     const [cartTotal, setCartTotal] = useState(0)
 
     useEffect(() => {
@@ -42,9 +42,12 @@ const CartDetail = () => {
                                 ))}
                             </tbody>
                         </table>
-                        <p className="text-end">
-                            Total a pagar: <span className="fw-bold">${cartTotal}</span>
-                        </p>
+                        <div className="contenedor-btnCarrito-total">
+                            <button className="btn btn-dark vaciar_carrito" onClick={()=>clearCart()}>Vaciar Carrito</button>
+                            <p className="text-end">
+                                Total a pagar: <span className="fw-bold">${cartTotal}</span>
+                            </p>
+                        </div>
                     </>
                 )}
             </div>
