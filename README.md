@@ -1,8 +1,9 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Proyecto final React - Grismado
 
-Currently, two official plugins are available:
+Mediante el uso de React se creo un ecommerce de remeras llamado FrontEndStore.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Este proyecto utiliza SweetAlert2 y se conecta a Firebase para obtener los datos de los productos.
+
+Tambien guarda las ordenes realizadas registrando algunos datos de los productos del carrito de compras, el monto total, la fecha en la que se realizo el checkout y datos del comprador (nombre, mail y telefono)
