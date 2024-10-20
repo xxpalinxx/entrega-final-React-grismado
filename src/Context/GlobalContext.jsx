@@ -4,7 +4,7 @@ import { getFirestore, collection, doc, getDoc , getDocs, addDoc, serverTimestam
 import Swal from "sweetalert2"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB_iPucQqj_y7hs4nuF4XjTOMzO73WG0yo",
+    apiKey: import.meta.env.VITE_FB_APIKEY,
     authDomain: "ecommerce-codergrismado.firebaseapp.com",
     projectId: "ecommerce-codergrismado",
     storageBucket: "ecommerce-codergrismado.appspot.com",
